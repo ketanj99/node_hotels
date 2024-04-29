@@ -20,6 +20,6 @@ app.use('/menuItem',menuitemRoutes);
 
 
 
-app.listen(3000, ()=>{
-    console.log('listing on port 3000')
+app.listen(PORT, ()=>{
+    console.log('listing on port ')
 } )
