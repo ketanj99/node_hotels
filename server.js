@@ -1,28 +1,23 @@
 const express = require('express')
 const app = express();
 const db = require('./db');
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
-
-
-const Person = require('./models/Parson');
-const MenuItem = require('./models/MenuItem');
 const { error } = require('console');
 app.use(bodyParser.json());  //req.body
+const PORT = process.env.PORT || 3000;
+
 
 
 // Import the router files
 const personRouter = require('./routes/personRoutes');
+const menuitemRoutes = require('./routes/menuitemRoutes');
 
 // Use ther routers
 app.use('/person',personRouter);
-
-// Import the router files
-const menuitemRoutes = require('./routes/menuitemRoutes');
-
-
-// Use ther routers
 app.use('/menuItem',menuitemRoutes);
+
 
 
 app.listen(3000, ()=>{
